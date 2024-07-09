@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jhon_dev": {
+    "portafolio_jhon": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/jhon_dev",
+            "outputPath": "dist/portafolio_jhon",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "jhon_dev:build:production"
+              "buildTarget": "portafolio_jhon:build:production"
             },
             "development": {
-              "buildTarget": "jhon_dev:build:development"
+              "buildTarget": "portafolio_jhon:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "jhon_dev:build"
+            "buildTarget": "portafolio_jhon:build"
           }
         },
         "test": {

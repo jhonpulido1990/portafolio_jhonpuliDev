@@ -1,5 +1,5 @@
 {
-  "name": "jhon-dev",
+  "name": "portafolio-jhon",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:jhon_dev": "node dist/jhon_dev/server/server.mjs"
+    "serve:ssr:portafolio_jhon": "node dist/portafolio_jhon/server/server.mjs"
   },
   "private": true,
   "dependencies": {
