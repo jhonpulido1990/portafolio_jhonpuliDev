@@ -1,0 +1,36 @@
+$colors: (
+  /* fondo */
+  blue_ligth: #E3F2FD,
+  white1: #FFFFFF,
+  gray_ligth: #F0F0F0,
+  orange_medium: #FF9800,
+  orange_dark: #F57C00,
+
+  /* texto */
+  black_text: #000000,
+  gray_dark1: #666666,
+  blue_medium: #2196F3,
+  blue_marin:#1A237E,
+  gray_dark2: #333333,
+  green1: #4CAF50,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+/* tamaño de pantalla */
+$screen-big-desktop: 1440px;
+$screen-desktop: 1024px;
+$screen-tablet: 768px;
+/* tamaño de letras */
+$text_size_xlarge: 36px;
+$text_size_large: 28px;
+$text_size_medium: 24px;
+$text_size-normal: 20px;
+$text_size_small: 18px;
+$text_size_xsmall: 16px;
+/* font weigth */
+$text_bold: 700;
+$text_semibold: 600;
+$text_medium: 500;
+$text_regular:400;
