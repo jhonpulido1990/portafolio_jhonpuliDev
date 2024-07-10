@@ -25,14 +25,15 @@ const routes: Routes = [
       { path: 'experience', title: 'experience', component: ExperienceComponent },
       { path: 'blog', title: 'blog', component: BlogComponent },
       { path: 'contact', title: 'contact', component: ContactComponent },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' }
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
   {
     path: 'auth',
     component: AuthLayoutsComponent,
     children: [
-      { path: 'login', title: 'login', component: LoginComponent }
+      { path: 'login', title: 'login', component: LoginComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' }
     ]
   },
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
     children: [
       { path: 'blog', title: 'admin-blog', component: BlogAdminComponent },
       { path: 'experience', title: 'admin-experience', component: ExperienceAdminComponent },
-      { path: 'projects', title: 'admin-projects', component: ProjectAdminComponent }
+      { path: 'projects', title: 'admin-projects', component: ProjectAdminComponent },
+      { path: '', redirectTo: 'blog', pathMatch: 'full' }
     ]
   }
 ];
