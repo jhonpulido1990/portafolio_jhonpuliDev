@@ -1,23 +1,21 @@
 $colors: (
-  /* fondo */
-  blue_ligth: #E3F2FD,
-  white1: #FFFFFF,
-  gray_ligth: #F0F0F0,
-  orange_medium: #FF9800,
-  orange_dark: #F57C00,
+  /* Variables de tema claro */
+  background-light: #E3F2FD,
+  text-main-light: #000000,
+  text-secondary-light: #666666,
+  accent-light: #FF9800,
 
-  /* texto */
-  black_text: #000000,
-  gray_dark1: #666666,
-  blue_medium: #2196F3,
-  blue_marin:#1A237E,
-  gray_dark2: #333333,
-  green1: #4CAF50,
+  /* Variables de tema oscuro */
+  background-dark: #121212,
+  text-main-dark: #FFFFFF,
+  text-secondary-dark: #B0B0B0,
+  accent-dark:#F57C00,
 );
 
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
+
 /* tamaño de pantalla */
 $screen-big-desktop: 1440px;
 $screen-desktop: 1024px;
@@ -33,4 +31,4 @@ $text_size_xsmall: 16px;
 $text_bold: 700;
 $text_semibold: 600;
 $text_medium: 500;
-$text_regular:400;
+$text_regular: 400;

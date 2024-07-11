@@ -52,9 +52,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   /* Peso Regular para texto normal */
-  background-color: variables.color(blue_ligth);
+  background-color: variables.color(background-light);
   /* Fondo Azul Claro */
-  color: variables.color(black_text);
+  color: variables.color(text-main-light);
   /* Texto Principal Negro */
 }
 
@@ -62,50 +62,44 @@ h1,
 h2 {
   font-weight: variables.$text_bold;
   /* Bold para h1 y h2 */
-  color: variables.color(blue_marin);
-  /* Azul Marino para encabezados */
 }
 
 h3,
 h4 {
   font-weight: variables.$text_semibold;
   /* Semi-Bold para h3 y h4 */
-  color: variables.color(blue_marin);
-  /* Azul Marino para encabezados */
 }
 
 h5,
 h6 {
   font-weight: variables.$text_medium;
   /* Medium para h5 y h6 */
-  color: variables.color(blue_marin);
-  /* Azul Marino para encabezados */
 }
 
 p {
   font-weight: variables.$text_regular;
   /* Regular para párrafos */
-  color: variables.color(gray_dark1);
+  color: variables.color(text-secondary-light);
   /* Gris Oscuro para texto secundario */
 }
 
 a {
   font-weight: variables.$text_medium;
   /* Medium para enlaces */
-  color: variables.color(orange_medium);
+  color: variables.color(text-main-light);
   /* Naranja para enlaces */
   text-decoration: none;
 }
 
 a:hover {
-  color: variables.color(orange_dark);
+  color: variables.color(accent-light);
   /* Naranja oscuro para hover */
 }
 
 button {
   font-weight: variables.$text_semibold;
   /* Semi-Bold para botones */
-  background-color: variables.color(orange_medium);
+  background-color: variables.color(accent-light);
   /* Naranja para botones */
   color: variables.color(white1);
   /* Texto del botón blanco */
@@ -116,6 +110,6 @@ button {
 }
 
 button:hover {
-  background-color: variables.color(orange_dark);
+  background-color: variables.color(accent-dark);
   /* Naranja oscuro para hover */
 }
