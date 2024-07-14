@@ -1,0 +1,175 @@
+@use '../../../../assets/styles/variables.scss' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.navbar {
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+
+  @include mixins.tablet() {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__image {
+      width: 65px;
+      height: auto;
+      cursor: pointer;
+
+      @include mixins.tablet() {
+        width: 98px;
+        height: auto;
+      }
+
+      @include mixins.desktop() {
+        width: 130px;
+        height: auto;
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    /*pushing a hamburger menu into a pillow texture like background*/
+    &__menuButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 10%;
+      color: #090909;
+      width: 30px;
+      height: 30px;
+      border-radius: 0.5em;
+      background: #171717;
+      border: 1px solid #171717;
+      transition: all .3s;
+      box-shadow: inset 4px 4px 12px #3a3a3a,
+        inset -4px -4px 12px #000000;
+
+      @include mixins.tablet() {
+        display: none;
+      }
+
+      &:hover {
+        border: 1px solid black;
+      }
+
+      &:active {
+        color: #666;
+        box-shadow: 6px 6px 12px #3a3a3a,
+          -6px -6px 12px #000000;
+      }
+
+      &__input[type="checkbox"] {
+        -webkit-appearance: none;
+        display: none;
+        visibility: hidden;
+
+        &:checked~.navbar__logo__menuButton__top {
+          transform: translateY(250%)rotate(45deg);
+          width: 20px;
+        }
+
+        &:checked~.navbar__logo__menuButton__bot {
+          transform: translateY(-265%) rotate(-45deg);
+          width: 20px;
+          box-shadow: 0 0 10px #495057;
+        }
+
+        &:checked~.navbar__logo__menuButton__mid {
+          transform: translateX(-20px);
+          opacity: 0;
+        }
+      }
+
+      &__top,
+      &__mid,
+      &__bot {
+        width: 15px;
+        height: 2px;
+        background: rgb(200, 200, 200);
+        border-radius: 100px;
+        transition: 0.3s ease;
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    top: 100%;
+    width: 100%;
+    padding: 0 30px;
+    right: 0;
+    gap: 10px;
+    background: #000000a6;
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+
+    @include mixins.tablet() {
+      display: contents;
+    }
+
+    &--active {
+      max-height: 500px;
+      transition: max-height 0.5s ease-in;
+      display: flex;
+      width: 100%;
+    }
+
+    &__ul {
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+
+      @include mixins.tablet() {
+        display: flex;
+      }
+
+      &__li {
+        padding-bottom: 10px;
+
+        @include mixins.tablet() {
+          padding: 0;
+        }
+
+        &__a {
+          color: variables.color(accent-light);
+          position: relative;
+          font-size: 16px;
+
+          @include mixins.tablet() {
+            font-size: variables.$text_size_xsmall;
+          }
+
+          &.active {
+            text-decoration: underline solid 5px; // Aplica subrayado a la ruta activa
+          }
+
+          &:hover {
+            color: variables.color(accent-dark);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,208 @@
+@use '../../../../assets/styles/variables.scss' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.footer {
+  padding-top: 20px;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+
+    &__contact {
+      margin: 10px;
+
+      &__h3 {
+        font-size: variables.$text_size_medium;
+        margin-bottom: 10px;
+        color: variables.color(accent-light);
+        /* Acento Naranja */
+      }
+
+      &__email,
+      &__email__link {
+        color: variables.color(text-secondary-light);
+
+        &:hover {
+          color: variables.color(accent-dark);
+          /* Acento Naranja */
+        }
+      }
+
+    }
+
+    &__nav {
+      margin: 10px;
+
+      &__h3 {
+        font-size: variables.$text_size_medium;
+        margin-bottom: 10px;
+        color: variables.color(accent-light);
+      }
+
+      &__ul__li__a {
+        color: variables.color(text-secondary-light);
+
+        &:hover {
+          color: variables.color(accent-dark);
+          /* Acento Naranja */
+        }
+      }
+    }
+
+    &__links {
+      margin: 10px;
+
+      &__h3 {
+        font-size: variables.$text_size_medium;
+        margin-bottom: 10px;
+        color: variables.color(accent-light);
+      }
+
+      &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        &__up {
+          display: flex;
+          flex-direction: row;
+          gap: 0.5em;
+
+          &__card1 {
+            width: 90px;
+            height: 90px;
+            outline: none;
+            border: none;
+            background: white;
+            border-radius: 90px 5px 5px 5px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              scale: 1.1;
+              background-color: #cc39a4;
+
+              .footer__content__links__main__up__card1__instagram {
+                color: white;
+                font-size: 24px;
+              }
+            }
+
+            &__instagram {
+              margin-top: 1.5em;
+              margin-left: 1.2em;
+              color: #cc39a4;
+              font-size: 20px;
+            }
+          }
+
+          &__card2 {
+            width: 90px;
+            height: 90px;
+            outline: none;
+            border: none;
+            background: white;
+            border-radius: 5px 90px 5px 5px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              scale: 1.1;
+              background-color: #000000;
+
+              .footer__content__links__main__up__card2__twitter {
+                color: white;
+                font-size: 24px;
+              }
+            }
+
+            &__twitter {
+              margin-top: 1.5em;
+              margin-left: -.9em;
+              color: #000000;
+              font-size: 20px;
+            }
+          }
+        }
+
+        &__down {
+          display: flex;
+          flex-direction: row;
+          gap: 0.5em;
+
+          &__card3 {
+            width: 90px;
+            height: 90px;
+            outline: none;
+            border: none;
+            background: white;
+            border-radius: 5px 5px 5px 90px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              scale: 1.1;
+              background-color: black;
+
+              .footer__content__links__main__down__card3__github {
+                color: white;
+                font-size: 24px;
+              }
+            }
+
+            &__github {
+              margin-top: -.6em;
+              margin-left: 1.2em;
+              color: #000000;
+              font-size: 20px;
+            }
+          }
+
+          &__card4 {
+            width: 90px;
+            height: 90px;
+            outline: none;
+            border: none;
+            background: white;
+            border-radius: 5px 5px 90px 5px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              scale: 1.1;
+              background-color: #0E76A8;
+
+              .footer__content__links__main__down__card4__linkedin {
+                color: white;
+                font-size: 24px;
+              }
+            }
+
+            &__linkedin {
+              margin-top: -.9em;
+              margin-left: -1.2em;
+              color: #0E76A8;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 10px;
+    background-color: #000000;
+
+    &__p {
+      text-align: center;
+      color: #FFFFFF;
+    }
+  }
+}

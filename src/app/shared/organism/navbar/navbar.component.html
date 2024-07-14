@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <section class="navbar__logo">
+    <article class="navbar__logo__image">
+      <img [routerLink]="['/home']" class="navbar__logo__image__img" src="../../../../assets/imagen/logo1/1-removebg-preview (1).png" alt="logo">
+    </article>
+    <label class="navbar__logo__menuButton" for="check">
+      <input class="navbar__logo__menuButton__input" type="checkbox" id="check" (click)="changeActive()">
+      <span class="navbar__logo__menuButton__top"></span>
+      <span class="navbar__logo__menuButton__mid"></span>
+      <span class="navbar__logo__menuButton__bot"></span>
+    </label>
+  </section>
+  <section class="navbar__menu" [ngClass]="{ 'navbar__menu--active': isActive }">
+    <ul class="navbar__menu__ul">
+      @for ( path of ruta; track path) {
+        <li class="navbar__menu__ul__li">
+          <a class="navbar__menu__ul__li__a" [routerLink]="[path.path]" routerLinkActive="active" >{{ path.name }}</a>
+        </li>
+      }
+    </ul>
+  </section>
+</nav>

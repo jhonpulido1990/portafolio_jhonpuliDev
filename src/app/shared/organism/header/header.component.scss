@@ -1,0 +1,139 @@
+@use '../../../../assets/styles/_variables' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.header {
+  position: relative;
+  color: white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: slideAnimation 30s infinite;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    &__title {
+      text-align: center;
+      font-size: variables.$text_size_medium;
+      padding: 20px 0;
+      -webkit-text-stroke: 2px variables.color(text-main-light);
+
+      @include mixins.tablet() {
+        font-size: variables.$text_size_large;
+      }
+
+      @include mixins.desktop() {
+        font-size: variables.$text_size_xlarge;
+      }
+    }
+
+    &__container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+
+      &__present {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+
+        &__subtitle {
+          font-size: variables.$text_size_normal;
+          text-align: center;
+          padding-bottom: 40px;
+          color: variables.color(accent-light);
+          text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+
+          @include mixins.tablet() {
+            font-size: variables.$text_size_medium;
+          }
+
+          @include mixins.desktop() {
+            font-size: variables.$text_size_large;
+          }
+        }
+
+        &__p {
+          font-size: variables.$text_size_small;
+          width: 70%;
+          text-align: center;
+          color: variables.color(accent-light);
+          text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+
+          @include mixins.tablet() {
+            font-size: variables.$text_size_normal;
+          }
+
+          @include mixins.desktop() {
+            font-size: variables.$text_size_medium;
+          }
+        }
+      }
+
+      &__image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mixins.tablet() {
+          width: 225px;
+          height: 225px;
+        }
+
+        @include mixins.desktop() {
+          width: 300px;
+          height: 300px;
+        }
+
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: drop-shadow(10px 7px 10px orange);
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideAnimation {
+
+  0%,
+  25% {
+    background-image: url('../../../../assets/imagen/fondoHeader/imagen1.jpeg');
+  }
+
+  25%,
+  50% {
+    background-image: url('../../../../assets/imagen/fondoHeader/imagen2.png');
+  }
+
+  50%,
+  75% {
+    background-image: url('../../../../assets/imagen/fondoHeader/imagen4.png');
+  }
+
+  75%,
+  100% {
+    background-image: url('../../../../assets/imagen/fondoHeader/imagen5.jpeg');
+  }
+}
