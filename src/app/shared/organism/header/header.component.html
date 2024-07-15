@@ -1,15 +1,21 @@
 <header class="header">
   <section class="header__content">
     <app-navbar />
+    @if (showContent) {
     <h1 class="header__content__title">Bienvenidos a mi portafolio</h1>
     <section class="header__content__container">
       <section class="header__content__container__present">
         <h2 class="header__content__container__present__subtitle">Hola!, soy Jhon Pulido</h2>
-        <p class="header__content__container__present__p">Especializado en Angular 16+ y Node.js con más de X años de experiencia en el desarrollo de aplicaciones web</p>
+        <p class="header__content__container__present__p">Especializado en Angular 16+ y Node.js con más de 1 año de
+          experiencia en el desarrollo de aplicaciones web</p>
       </section>
       <article class="header__content__container__image">
-        <img class="header__content__container__image__img" src="../../../../assets/imagen/logo1/jhonpulido-removebg-preview.png" alt="foto Jhon Pulido">
+        <img class="header__content__container__image__img"
+          src="../../../../assets/imagen/logo1/jhonpulido-removebg-preview.png" alt="foto Jhon Pulido">
       </article>
     </section>
+    } @else {
+      <section class="header__space"></section>
+    }
   </section>
 </header>
