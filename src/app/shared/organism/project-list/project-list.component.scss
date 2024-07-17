@@ -1,0 +1,110 @@
+@use '../../../../assets/styles/variables.scss' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: variables.$text_medium;
+    margin-bottom: 20px;
+
+
+    @include mixins.tablet() {
+      font-size: variables.$text_size_medium;
+    }
+
+    @include mixins.desktop() {
+      font-size: variables.$text_size_large;
+    }
+  }
+
+  &__caroulse {
+    width: 95%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mixins.tablet() {
+      margin: 50px auto;
+    }
+
+    @include mixins.desktop() {
+      margin: 100px auto;
+    }
+
+    &__card {
+      background-color: variables.color(text-main-dark);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      overflow: hidden;
+
+      &__content {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+
+        &__img {
+          width: 100%;
+        }
+      }
+
+      &__info {
+        padding: 20px;
+        text-align: center;
+
+        &__title {
+          font-size: variables.$text_size_xsmall;
+          margin-bottom: 10px;
+
+          @include mixins.tablet() {
+            font-size: variables.$text_size_small;
+          }
+
+          @include mixins.desktop() {
+            font-size: variables.$text_size-normal;
+          }
+        }
+
+        p {
+          margin: 5px 0;
+          font-size: 16px;
+
+          @include mixins.tablet() {
+            font-size: variables.$text_size_xsmall;
+          }
+
+          @include mixins.desktop() {
+            font-size: variables.$text_size-normal;
+          }
+        }
+
+        &__links {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 10px;
+
+          &__a {
+            color: variables.color(text-main-dark);
+            background-color: variables.color(accent-light);
+            padding: 6px 6px;
+            border-radius: 5px;
+            text-decoration: none;
+
+            &:hover {
+              background-color: variables.color(accent-dark);
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+}

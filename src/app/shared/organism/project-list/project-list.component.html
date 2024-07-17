@@ -1,0 +1,28 @@
+<section class="projects">
+  <h2 class="projects__title">Proyectos</h2>
+  <p-carousel class="projects__caroulse" [value]="projects" [numVisible]="3" [numScroll]="1" [circular]="true"
+    [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+    <ng-template let-product pTemplate="item">
+      <section class="projects__caroulse__card">
+        <article class="projects__caroulse__card__content">
+          <img class="projects__caroulse__card__content__img" [src]="product.imageUrl" alt="{{ product.title }}">
+        </article>
+        <section class="projects__caroulse__card__info">
+          <h3 class="projects__caroulse__card__info__title">{{ product.title }}</h3>
+          <p class="projects__caroulse__card__info__p">{{ product.description }}</p>
+          <p class="projects__caroulse__card__info__p"><strong>Tecnologías usadas:</strong> {{
+            product.technologies.join(', ') }}</p>
+          <p class="projects__caroulse__card__info__p"><strong>Rol:</strong> {{ product.role }}</p>
+          <article class="projects__caroulse__card__info__links">
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.demoLink" [href]="product.demoLink"
+              target="_blank">Ver Demo</a>
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.repoLink" [href]="product.repoLink"
+              target="_blank">Ver Repositorio</a>
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.videoLink" [href]="product.repoLink"
+              target="_blank">Ver Video</a>
+          </article>
+        </section>
+      </section>
+    </ng-template>
+  </p-carousel>
+</section>
