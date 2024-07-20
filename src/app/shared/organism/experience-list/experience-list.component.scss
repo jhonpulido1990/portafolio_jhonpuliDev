@@ -1,0 +1,74 @@
+@use '../../../../assets/styles/variables.scss' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  &__title {
+    font-size: variables.$text_size-normal;
+    margin-bottom: 20px;
+
+    @include mixins.tablet() {
+      font-size: variables.$text_size_medium;
+    }
+
+    @include mixins.desktop() {
+      font-size: variables.$text_size_large;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: variables.color(text-main-dark);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+      border: variables.color(text-main-light) 0.2em solid;
+      border-radius: 2.5rem 0 2.5rem 0;
+      background-color: #edc281;
+    }
+
+    &__info {
+      padding: 20px;
+
+      &__title {
+        font-size: variables.$text_size_xsmall;
+        margin-bottom: 10px;
+
+        @include mixins.tablet() {
+          font-size: variables.$text_size_small;
+        }
+
+        @include mixins.desktop() {
+          font-size: variables.$text_size-normal;
+        }
+      }
+
+      &__p {
+        margin: 5px 0;
+      }
+
+      &__ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      &__testimonial {
+        font-style: italic;
+        color: variables.color(text-secondary-light);
+        margin-top: 10px;
+      }
+    }
+  }
+}
