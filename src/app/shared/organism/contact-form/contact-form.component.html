@@ -1,0 +1,29 @@
+<section class="contact">
+  <h2 class="contact__title">Contactame</h2>
+  <form class="contact__form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <section class="contact__form__group">
+      <label class="contact__form__group__label" for="name">Nombre:</label>
+      <input class="contact__form__group__input" id="name" formControlName="name" type="text" placeholder="Tu nombre">
+      <article class="contact__form__group__error" *ngIf="isValidField('name')">
+        {{ getFieldError('name') }}
+      </article>
+    </section>
+    <section class="contact__form__group">
+      <label class="contact__form__group__label" for="email">Correo Electrónico:</label>
+      <input class="contact__form__group__input" id="email" formControlName="email" type="email"
+        placeholder="Tu correo electrónico">
+      <article class="contact__form__group__error" *ngIf="isValidField('email')">
+        {{ getFieldError('email') }}
+      </article>
+    </section>
+    <section class="contact__form__group">
+      <label class="contact__form__group__label" for="message">Mensaje:</label>
+      <textarea class="contact__form__group__input" id="message" formControlName="message" rows="5"
+        placeholder="Tu mensaje"></textarea>
+      <article class="contact__form__group__error" *ngIf="isValidField('message')">
+        {{ getFieldError('message') }}
+      </article>
+    </section>
+    <button class="contact__form__btn" type="submit">Enviar</button>
+  </form>
+</section>

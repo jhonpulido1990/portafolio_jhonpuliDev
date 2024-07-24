@@ -27,6 +27,12 @@ export class NavbarComponent implements OnInit {
 
   changeActive(): void {
     this.isActive = !this.isActive;
+    if (this.isActive == false) {
+      const checkbox = document.getElementById('check') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
+    }
   }
 
   @HostListener('window:resize', [])

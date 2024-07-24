@@ -14,7 +14,7 @@
     <ul class="navbar__menu__ul">
       @for ( path of ruta; track path) {
         <li class="navbar__menu__ul__li">
-          <a class="navbar__menu__ul__li__a" [routerLink]="[path.path]" routerLinkActive="active" >{{ path.name }}</a>
+          <a class="navbar__menu__ul__li__a" (click)="changeActive()" [routerLink]="[path.path]" routerLinkActive="active" >{{ path.name }}</a>
         </li>
       }
     </ul>
