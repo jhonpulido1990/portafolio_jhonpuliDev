@@ -1,2 +1,9 @@
-<p>admin-layouts works!</p>
-<router-outlet />
+<p-menubar class="menu__seccion" [model]="items"></p-menubar>
+<section class="admin">
+  <article class="admin__panel">
+    <p-panelMenu class="admin__panel__menu" [model]="adminMenu"></p-panelMenu>
+  </article>
+  <article class="admin__router">
+    <router-outlet />
+  </article>
+</section>

@@ -1,0 +1,21 @@
+<section class="contact">
+  <h2 class="contact__title">Login</h2>
+  <form class="contact__form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <section class="contact__form__group">
+      <label class="contact__form__group__label" for="email">Usuario:</label>
+      <input class="contact__form__group__input" id="email" formControlName="email" type="email" placeholder="Tu Usuario">
+      <article class="contact__form__group__error" *ngIf="isValidField('email')">
+        {{ getFieldError('email') }}
+      </article>
+    </section>
+    <section class="contact__form__group">
+      <label class="contact__form__group__label" for="password">Contraseña:</label>
+      <input class="contact__form__group__input" id="password" formControlName="password" type="password"
+        placeholder="Tu correo electrónico">
+      <article class="contact__form__group__error" *ngIf="isValidField('password')">
+        {{ getFieldError('password') }}
+      </article>
+    </section>
+    <button class="contact__form__btn" type="submit">Enviar</button>
+  </form>
+</section>
