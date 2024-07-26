@@ -1,0 +1,29 @@
+.accordion {
+  .accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+
+    .accordion-header {
+      background-color: #f7f7f7;
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: #e7e7e7;
+      }
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+
+      &.active {
+        max-height: 500px;
+        /* Ajusta este valor según tu contenido */
+        padding: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<section class="accordion">
+  <section class="accordion-item">
+    <header (click)="toggleSection('table')" class="accordion-header">
+      Tabla
+    </header>
+    <section [class.active]="isTableOpen" class="accordion-content">
+      
+    </section>
+  </section>
+
+  <section class="accordion-item">
+    <header (click)="toggleSection('form')" class="accordion-header">
+      Formulario
+    </header>
+    <section [class.active]="isFormOpen" class="accordion-content">
+      <form>
+        <div class="form-group">
+          <label for="input1">Input 1</label>
+          <input id="input1" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="input2">Input 2</label>
+          <input id="input2" type="text" />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </section>
+</section>
