@@ -10,6 +10,15 @@ $colors: (
   text-main-dark: #FFFFFF,
   text-secondary-dark: #B0B0B0,
   accent-dark:#F57C00,
+
+  /* nuevos estilos */
+  deep-blue: #002B5B,
+  navy-blue: #005377,
+  dark-turquoise: #007B8F,
+  sea-green: #00918A,
+  algae-green: #00A48A,
+  stone-gray: #4A4A4A,
+  sand-white: #F4F4F9,
 );
 
 @function color($color-name) {

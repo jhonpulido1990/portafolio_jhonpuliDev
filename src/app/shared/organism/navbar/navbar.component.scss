@@ -120,7 +120,7 @@
     padding: 0 30px;
     right: 0;
     gap: 10px;
-    background: #000000a6;
+    background: #007c8fbe;
     box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
     border: 2px solid rgba(255, 255, 255, 0.18);
 
@@ -153,9 +153,9 @@
         }
 
         &__a {
-          color: variables.color(accent-light);
           position: relative;
           font-size: 16px;
+          padding: 10px;
 
           @include mixins.tablet() {
             font-size: variables.$text_size_xsmall;
@@ -165,9 +165,6 @@
             text-decoration: underline solid 5px; // Aplica subrayado a la ruta activa
           }
 
-          &:hover {
-            color: variables.color(accent-dark);
-          }
         }
       }
     }

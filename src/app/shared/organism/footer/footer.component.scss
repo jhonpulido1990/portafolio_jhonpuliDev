@@ -3,6 +3,7 @@
 
 .footer {
   padding-top: 20px;
+  border-top: 1px solid variables.color(algae-green);
 
   &__content {
     display: flex;
@@ -16,16 +17,18 @@
       &__h3 {
         font-size: variables.$text_size_medium;
         margin-bottom: 10px;
-        color: variables.color(accent-light);
+        color: variables.color(sea-green);
         /* Acento Naranja */
       }
 
       &__email,
-      &__email__link {
-        color: variables.color(text-secondary-light);
+      &__email__link,
+      &__telephone,
+      &__site {
+        color: variables.color(sea-green);
 
         &:hover {
-          color: variables.color(accent-dark);
+          color: variables.color(algae-green);
           /* Acento Naranja */
         }
       }
@@ -38,14 +41,14 @@
       &__h3 {
         font-size: variables.$text_size_medium;
         margin-bottom: 10px;
-        color: variables.color(accent-light);
+        color: variables.color(sea-green);
       }
 
       &__ul__li__a {
-        color: variables.color(text-secondary-light);
+        color: variables.color(stone-gray);
 
         &:hover {
-          color: variables.color(accent-dark);
+          color: variables.color(algae-green);
           /* Acento Naranja */
         }
       }
@@ -57,7 +60,7 @@
       &__h3 {
         font-size: variables.$text_size_medium;
         margin-bottom: 10px;
-        color: variables.color(accent-light);
+        color: variables.color(sea-green);
       }
 
       &__main {
@@ -75,7 +78,7 @@
             height: 90px;
             outline: none;
             border: none;
-            background: white;
+            background: variables.color(sand-white);
             border-radius: 90px 5px 5px 5px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
             transition: .2s ease-in-out;

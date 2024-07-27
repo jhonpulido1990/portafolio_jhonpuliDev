@@ -1,4 +1,5 @@
 @use './_variables.scss';
+
 /* Restablecer márgenes y rellenos */
 * {
   margin: 0;
@@ -52,9 +53,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   /* Peso Regular para texto normal */
-  background-color: variables.color(background-light);
+  background-color: variables.color(deep-blue);
   /* Fondo Azul Claro */
-  color: variables.color(text-main-light);
+  color: variables.color(sand-white);
   /* Texto Principal Negro */
 }
 
@@ -86,30 +87,30 @@ p {
 a {
   font-weight: variables.$text_medium;
   /* Medium para enlaces */
-  color: variables.color(text-main-light);
+  color: variables.color(sand-white);
   /* Naranja para enlaces */
   text-decoration: none;
+  &:hover {
+    color: variables.color(algae-green);
+    /* Naranja oscuro para hover */
+  }
 }
 
-a:hover {
-  color: variables.color(accent-light);
-  /* Naranja oscuro para hover */
-}
 
 button {
   font-weight: variables.$text_semibold;
   /* Semi-Bold para botones */
-  background-color: variables.color(accent-light);
+  background-color: variables.color(navy-blue);
   /* Naranja para botones */
-  color: variables.color(white1);
+  color: variables.color(sand-white);
   /* Texto del botón blanco */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-}
 
-button:hover {
-  background-color: variables.color(accent-dark);
-  /* Naranja oscuro para hover */
+  &:hover {
+    background-color: variables.color(dark-turquoise);
+    /* Naranja oscuro para hover */
+  }
 }
