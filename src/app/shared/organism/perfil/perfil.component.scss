@@ -8,31 +8,48 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
+
   &__card1 {
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe,
-    -20px -20px 60px #ffffff;
-  max-width: 500px;
-  padding: 20px;
-  &__p {
-    font-size: variables.$text_size_xsmall;
-    @include mixins.tablet() {
+    border-radius: 50px;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(0deg, variables.color(deep-blue), variables.color(navy-blue));
+    box-shadow: 20px 20px 60px rgba(50, 50, 93, 0.25),
+      -20px -20px 60px rgba(255, 255, 255, 0.3);
+
+      @include mixins.desktop() {
+        width: 60%;
+      }
+
+    &__p {
       font-size: variables.$text_size_small;
+
+      @include mixins.tablet() {
+        font-size: variables.$text_size-normal;
+      }
+
+      @include mixins.desktop() {
+        font-size: variables.$text_size_medium;
+      }
     }
+  }
+
+  &__card2 {
+    border-radius: 50px;
+    background: linear-gradient(0deg, variables.color(deep-blue), variables.color(navy-blue));
+    box-shadow: 20px 20px 60px rgba(50, 50, 93, 0.25),
+      -20px -20px 60px rgba(255, 255, 255, 0.3);
+    width: 40%;
+    padding: 20px;
+
     @include mixins.desktop() {
-      font-size: variables.$text_size_normal;
+        width: 25%;
+      }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
   }
 }
-&__card2 {
-  border-radius: 50px;
-  background: linear-gradient(0deg, #000, #272727);
-  box-shadow: 20px 20px 60px #bebebe,
-    -20px -20px 60px #ffffff;
-  max-width: 300px;
-  height: 300px;
-  padding: 20px;
-}
-}
-

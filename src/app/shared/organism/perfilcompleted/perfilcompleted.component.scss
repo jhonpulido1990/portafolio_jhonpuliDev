@@ -2,218 +2,99 @@
 @use '../../../../assets/styles/variables.scss' as variables;
 
 .about {
-  padding: 20px;
-  color: variables.color(text-secondary-light);
   display: flex;
   flex-direction: column;
-
-  &__history {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
+  @include mixins.tablet() {
+    padding: 40px;
+  }
+  @include mixins.desktop() {
+    flex-direction: row;
     gap: 16px;
+  }
 
-    &__h2 {
-      font-size: variables.$text_size-normal;
-      margin-bottom: 20px;
-      color: variables.color(accent-light);
-      text-align: center;
-
-      @include mixins.tablet() {
-        font-size: variables.$text_size_medium;
-      }
-
-      @include mixins.desktop() {
-        font-size: variables.$text_size_large;
-      }
+  &__content {
+    padding: 20px;
+    @include mixins.desktop() {
+      width: 60%;
     }
 
-    &__content {
-      display: flex;
-      gap: 16px;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
+    &__history,
+    &__skills,
+    &__education {
+      margin-bottom: 20px;
 
-      &__card {
-        max-width: 300px;
-        padding: 20px;
-        background: variables.color(text-main-dark);
-        border-radius: 10px;
-        transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-          0 0 0 2px rgb(190, 190, 190),
-          0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        font-size: 16px;
-        line-height: 1;
+      &__h2 {
+        font-size: variables.$text_size-normal;
+        margin-bottom: 10px;
 
         @include mixins.tablet() {
-          font-size: variables.$text_size_xsmall;
-          line-height: 1.6;
+          font-size: variables.$text_size_medium;
         }
-      }
-    }
 
-    &__line {
-      background-color: variables.color(accent-light);
-      padding: 1px;
-      text-align: center;
-    }
-  }
-
-  &__line {
-    background-color: variables.color(accent-light);
-    padding: 1px;
-    text-align: center;
-  }
-
-  &__skills {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    &__h2 {
-      font-size: variables.$text_size-normal;
-      margin-bottom: 20px;
-      color: variables.color(accent-light);
-      text-align: center;
-
-      @include mixins.tablet() {
-        font-size: variables.$text_size_medium;
-      }
-
-      @include mixins.desktop() {
-        font-size: variables.$text_size_large;
-      }
-    }
-
-    &__content {
-      display: flex;
-      gap: 16px;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-
-      ul {
-        list-style-type: none;
-        padding: 0;
-
-        li {
-          margin-bottom: 10px;
-          position: relative;
-          padding-left: 20px;
-          font-size: 16px;
-          line-height: 1;
-
-          @include mixins.tablet() {
-            font-size: variables.$text_size_xsmall;
-            line-height: 1.6;
-          }
-
-          &:before {
-            content: '•';
-            color: variables.color(accent-light);
-            position: absolute;
-            left: 0;
-            font-size: 24px;
-          }
+        @include mixins.desktop() {
+          font-size: variables.$text_size_large;
         }
       }
 
       &__card {
-        max-width: 300px;
-        padding: 20px;
-        background: variables.color(text-main-dark);
-        border-radius: 10px;
-        transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-          0 0 0 2px rgb(190, 190, 190),
-          0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-      }
-    }
-  }
+        font-size: variables.$text_size_xsmall;
+        padding-left: 20px;
 
-  &__education {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+        @include mixins.tablet() {
+          font-size: variables.$text_size_small;
+        }
 
-    &__h2 {
-      font-size: variables.$text_size-normal;
-      margin-bottom: 20px;
-      color: variables.color(accent-light);
-      text-align: center;
-
-      @include mixins.tablet() {
-        font-size: variables.$text_size_medium;
-      }
-
-      @include mixins.desktop() {
-        font-size: variables.$text_size_large;
-      }
-    }
-
-    &__content {
-      display: flex;
-      gap: 16px;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-
-      ul {
-        list-style-type: none;
-        padding: 0;
-
-        li {
-          margin-bottom: 10px;
-          position: relative;
-          padding-left: 20px;
-          font-size: 16px;
-          line-height: 1;
-
-          @include mixins.tablet() {
-            font-size: variables.$text_size_xsmall;
-            line-height: 1.6;
-          }
-
-          &:before {
-            content: '•';
-            color: variables.color(accent-light);
-            position: absolute;
-            left: 0;
-            font-size: 24px;
-          }
+        @include mixins.desktop() {
+          font-size: variables.$text_size_normal;
         }
       }
 
-      &__card {
-        max-width: 300px;
-        padding: 20px;
-        background: white;
-        border-radius: 10px;
-        transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-          0 0 0 2px rgb(190, 190, 190),
-          0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        font-size: 1.2rem;
-        line-height: 1.6;
+      &__list {
+        padding-left: 50px;
+
+        &__ul {
+          list-style: disc;
+          padding: 0;
+
+          &__li {
+            margin-bottom: 10px;
+            color: variables.color(sand-white);
+            font-size: variables.$text_size_xsmall;
+
+            @include mixins.tablet() {
+              font-size: variables.$text_size_small;
+            }
+
+            @include mixins.desktop() {
+              font-size: variables.$text_size_normal;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
   }
 
-  &__card {
-    align-self: center;
-    max-width: 500px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-      0 0 0 2px rgb(190, 190, 190),
-      0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-    font-size: 1.2rem;
-    line-height: 1.6;
+  &__imagen {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    @include mixins.desktop() {
+      width: 35%;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @include mixins.desktop() {
+        border-radius: 90px;
+      }
+    }
   }
 }
