@@ -9,8 +9,6 @@
 
   &__title {
     text-align: center;
-    text-shadow: -2px -2px 3px #ffffff,
-      2px 2px 3px #bababa;
     font-size: variables.$text_size-normal;
     margin-bottom: 10px;
 
@@ -29,8 +27,6 @@
     padding: 4%;
     border-radius: 16px;
     background: #e8e8e8;
-    box-shadow: 12px 12px 18px #bababa,
-      -12px -12px 18px #ffffff;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -53,7 +49,7 @@
         display: block;
         margin-bottom: 5px;
         font-weight: variables.$text_bold;
-
+        color: variables.color(deep-blue);
       }
 
       &__input {
@@ -77,6 +73,10 @@
           outline: none;
           background: rgb(241, 241, 241);
         }
+
+        &::placeholder {
+          color: variables.color(dark-turquoise);
+        }
       }
 
       &__error {
@@ -92,8 +92,8 @@
       color: white;
       font-weight: 700;
       height: 18%;
-      background: linear-gradient(144deg, #af40ff,
-          #5b42f3 50%, #00ddeb);
+      background: linear-gradient(144deg, variables.color(deep-blue),
+          variables.color(algae-green) 50%, variables.color(stone-gray));
       border-radius: 8px;
       border: none;
       box-shadow: inset 1px 3px 3px #ffffffbd,

@@ -11,7 +11,6 @@
     font-size: variables.$text_medium;
     margin-bottom: 20px;
 
-
     @include mixins.tablet() {
       font-size: variables.$text_size_medium;
     }
@@ -37,7 +36,7 @@
     }
 
     &__card {
-      background-color: variables.color(text-main-dark);
+      background-color: variables.color(navy-blue);
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin: 20px;
@@ -46,7 +45,7 @@
       &__content {
         width: 100%;
         height: auto;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid variables.color(stone-gray);
 
         &__img {
           width: 100%;
@@ -91,14 +90,15 @@
           margin-top: 10px;
 
           &__a {
-            color: variables.color(text-main-dark);
-            background-color: variables.color(accent-light);
+            color: variables.color(deep-blue);
+            background-color: variables.color(algae-green);
             padding: 6px 6px;
             border-radius: 5px;
             text-decoration: none;
 
             &:hover {
-              background-color: variables.color(accent-dark);
+              background-color: variables.color(stone-gray);
+              color: variables.color(sand-white);
             }
 
           }

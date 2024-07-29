@@ -4,10 +4,10 @@
 .blog {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
 
   &__title {
+    text-align: center;
     font-size: variables.$text_size-normal;
     margin-bottom: 10px;
 
@@ -26,24 +26,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: variables.color(text-main-dark);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    width: 100%;
-    max-width: 800px;
     padding: 20px;
-
-    &:hover {
-      transform: translateY(-0.5rem);
-      border: variables.color(text-main-light) 0.2em solid;
-      border-radius: 2.5rem 0 2.5rem 0;
-      background-color: #edc281;
-    }
 
     &__title {
       font-size: variables.$text_size_xsmall;
       margin-bottom: 5px;
+      color: variables.color(algae-green);
 
       @include mixins.tablet() {
         font-size: variables.$text_size_small;
@@ -58,7 +49,7 @@
 
     &__date {
       font-size: 0.9rem;
-      color: #666;
+      color: variables.color(dark-turquoise);
       margin-bottom: 10px;
     }
 
@@ -67,7 +58,7 @@
     }
 
     &__a {
-      color: #007bff;
+      color: variables.color(algae-green);
       text-decoration: none;
 
       &:hover {
