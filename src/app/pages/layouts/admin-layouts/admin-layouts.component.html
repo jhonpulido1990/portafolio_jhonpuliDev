@@ -1,7 +1,12 @@
-<p-menubar class="menu__seccion" [model]="items"></p-menubar>
+<nav class="navbar">
+  <i class="pi pi-home">Home</i>
+  <i class="pi pi-sign-out">Cerrar seccion</i>
+</nav>
 <section class="admin">
   <article class="admin__panel">
-    <p-panelMenu class="admin__panel__menu" [model]="adminMenu"></p-panelMenu>
+    <button class="pi pi-book admin__panel__btn" [routerLink]="['/admin/blog']"> Blog</button>
+    <button class="pi pi-briefcase admin__panel__btn" [routerLink]="['/admin/experience']"> Experiencia</button>
+    <button class="pi pi-th-large admin__panel__btn" [routerLink]="['/admin/projects']"> Proyectos</button>
   </article>
   <article class="admin__router">
     <router-outlet />

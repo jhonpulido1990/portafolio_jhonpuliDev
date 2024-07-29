@@ -1,4 +1,12 @@
 @use '../../../../assets/styles/mixins.scss' as mixins;
+@use '../../../../assets/styles/variables.scss' as variables;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-bottom: 1px solid variables.color(algae-green);
+}
 
 .admin {
   margin: 0;
@@ -11,9 +19,18 @@
 
   &__panel {
     width: 100%;
+    border-bottom: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 15px;
 
     @include mixins.tablet() {
       width: 20%;
+      height: 100vh;
+      border-bottom: 0;
+      padding-top: 15px;
+      border-right: 1px solid green;
     }
   }
 

@@ -101,9 +101,11 @@
       background-size: 150% 150%;
       animation: input 5s infinite;
       transition: all 900ms ease-in;
+
       @include mixins.tablet() {
         font-size: variables.$text_size_small;
       }
+
       @include mixins.desktop() {
         font-size: variables.$text_size-normal;
       }
