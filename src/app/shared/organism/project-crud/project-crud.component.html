@@ -1,0 +1,101 @@
+<section class="accordion">
+  <section class="accordion__item">
+    <header class="accordion__item__header" (click)="toggleSection('table')">
+      Tabla
+    </header>
+    <article class="accordion__item__content" [class.accordion__item__content--active]="isTableOpen">
+      <section class="accordion__item__content__container">
+        <table class="accordion__item__content__container__table">
+          <thead class="accordion__item__content__container__table__thead">
+            <tr class="accordion__item__content__container__table__thead__tr">
+              <th class="accordion__item__content__container__table__thead__tr__th">Titulo</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Descriccion</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Tecnologia</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Rol</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Demolink</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Repolink</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Videolink</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Imagen link</th>
+              <th class="accordion__item__content__container__table__thead__tr__th">Operación</th>
+            </tr>
+          </thead>
+          <tbody class="accordion__item__content__container__table__tbody">
+            <tr class="accordion__item__content__container__table__tbody__tr">
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">
+                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"></button>
+                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
+              </td>
+            </tr>
+            <tr class="accordion__item__content__container__table__tbody__tr">
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">
+                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__bnt"></button>
+                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
+              </td>
+            </tr>
+            <tr class="accordion__item__content__container__table__tbody__tr">
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">
+                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__bnt"></button>
+                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </article>
+  </section>
+  <section class="accordion__item">
+    <header class="accordion__item__header" (click)="toggleSection('form')">
+      Formulario
+    </header>
+    <article class="accordion__item__content" [class.accordion__item__content--active]="isFormOpen">
+      <section class="accordion__item__content__container">
+        <form class="accordion__item__content__container__form">
+          <label class="accordion__item__content__container__form__label" for="input1">Titulo *</label>
+          <input class="accordion__item__content__container__form__input" id="input1" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input2">Descriccion *</label>
+          <input class="accordion__item__content__container__form__input" id="input2" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input3">Tecnologias *</label>
+          <span>Angular</span>
+          <input class="accordion__item__content__container__form__input" id="input3" type="text" />
+          <button class="pi pi-plus"></button>
+          <label class="accordion__item__content__container__form__label" for="input4">Rol *</label>
+          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input4">Demolink *</label>
+          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input4">Repolink *</label>
+          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input4">Videolink *</label>
+          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <label class="accordion__item__content__container__form__label" for="input4">Imagenlink *</label>
+          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <img src="src" alt="imagen">
+          <button class="accordion__item__content__container__form__btn" type="submit">Enviar *</button>
+        </form>
+      </section>
+    </article>
+  </section>
+</section>

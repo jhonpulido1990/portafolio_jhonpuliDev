@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
     { path: '/experience', name: 'Experiencia' },
     { path: '/blog', name: 'Blog' },
     { path: '/contact', name: 'Contacto' },
+    { path: '/auth/login', name: 'Login' },
   ];
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
   changeActive(): void {
     this.isActive = !this.isActive;
-    this.checkWindowWidth()
+    this.checkWindowWidth();
     if (!this.isActive) {
       const checkbox = document.getElementById('check') as HTMLInputElement;
       if (checkbox) {

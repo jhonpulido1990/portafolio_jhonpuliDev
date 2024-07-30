@@ -1,0 +1,124 @@
+@use '../../../../assets/styles/variables.scss' as variables;
+@use '../../../../assets/styles/mixins.scss' as mixins;
+
+.accordion {
+  width: 100%;
+  padding: 30px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  &__item {
+    border: 1px solid variables.color(stone-gray); // Bordes en color gris piedra
+    margin-bottom: 10px;
+
+    &__header {
+      background-color: variables.color(algae-green); // Fondo verde alga para el header
+      color: variables.color(sand-white); // Texto blanco arena
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease-out;
+
+      &:hover {
+        background-color: variables.color(sand-white); // Fondo blanco arena al hacer hover
+        color: variables.color(deep-blue); // Texto azul profundo al hacer hover
+      }
+    }
+
+    &__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      background-color: variables.color(sand-white); // Fondo blanco arena para el contenido
+      color: variables.color(deep-blue); // Texto azul profundo
+
+      &--active {
+        max-height: 500px;
+        padding: 10px;
+        overflow: auto;
+      }
+
+      &__container {
+        width: 100%;
+        overflow-x: auto; // Agrega desplazamiento horizontal si es necesario
+        -webkit-overflow-scrolling: touch; // Para un desplazamiento más suave en dispositivos táctiles
+
+        &__table {
+          width: 100%;
+          border-collapse: collapse;
+          min-width: 600px; // Establece un ancho mínimo para la tabla si es necesario
+
+
+          &__thead__tr__th {
+            background-color: variables.color(algae-green); // Fondo verde alga para el encabezado
+            color: variables.color(sand-white); // Texto blanco arena para el encabezado
+            padding: 12px 15px;
+            border: 1px solid variables.color(stone-gray); // Utiliza la variable de color para los bordes
+            text-align: left;
+          }
+
+          &__tbody__tr {
+            &:nth-child(even) {
+              background-color: variables.color(deep-blue); // Fondo azul profundo para filas pares
+              color: variables.color(sand-white); // Texto blanco arena para filas pares
+            }
+
+            &:nth-child(odd) {
+              background-color: variables.color(sand-white); // Fondo blanco arena para filas impares
+              color: variables.color(deep-blue); // Texto azul profundo para filas impares
+            }
+
+            &__td {
+              padding: 12px 15px;
+              border: 1px solid variables.color(stone-gray); // Utiliza la variable de color para los bordes
+              text-align: left;
+
+              &__btn {
+                margin: 3px;
+              }
+            }
+          }
+        }
+
+        &__form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          &__label {
+            font-weight: variables.$text_bold;
+          }
+
+          &__input {
+            padding: 10px;
+            border: 1px solid variables.color(stone-gray); // Bordes en color gris piedra
+            border-radius: 5px;
+            background-color: variables.color(sand-white); // Fondo blanco arena
+            color: variables.color(deep-blue); // Texto azul profundo
+
+            &:focus {
+              outline: none;
+              border-color: variables.color(algae-green); // Bordes en verde alga al enfocar
+            }
+          }
+
+          &__btn {
+            font-size: variables.$text_size_xsmall;
+            letter-spacing: 3px;
+            color: white;
+            font-weight: 700;
+            padding: 10px;
+            background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+            border-radius: 5px;
+            border: none;
+            transition: background 0.3s ease-out;
+
+            &:hover {
+              background: linear-gradient(144deg, #9706ff, #2f0fff 50%, #18f0ff);
+            }
+          }
+        }
+      }
+    }
+  }
+}
