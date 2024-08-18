@@ -1,6 +1,7 @@
 <section class="projects">
   <h2 class="projects__title">Proyectos</h2>
-  <p-carousel class="projects__caroulse" [value]="projects" [numVisible]="3" [numScroll]="1" [circular]="true"
+  @if (project()) {
+  <p-carousel class="projects__caroulse" [value]="project()" [numVisible]="3" [numScroll]="1" [circular]="true"
     [responsiveOptions]="responsiveOptions" [showIndicators]="false">
     <ng-template let-product pTemplate="item">
       <section class="projects__caroulse__card">
@@ -25,4 +26,5 @@
       </section>
     </ng-template>
   </p-carousel>
+  }
 </section>

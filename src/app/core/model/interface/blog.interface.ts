@@ -1,4 +1,4 @@
-export interface Article {
+export interface BlogDto {
   title: string;
   description: string;
   link: string;

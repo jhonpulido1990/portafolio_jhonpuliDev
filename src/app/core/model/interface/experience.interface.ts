@@ -1,8 +1,9 @@
 export interface Job {
+  id?: string;
   company: string;
   position: string;
   duration: string;
-  responsibilities: string[];
+  responsabilities: string[];
   achievements: string[];
   testimonial?: string;
 }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProjectList } from '../../../core/model/interface/product-list.interface';
 import { CommonModule } from '@angular/common';
 
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
+import { ProjectService } from '../../../core/service/project.service';
 
 @Component({
   selector: 'app-project-list',
@@ -13,8 +14,10 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './project-list.component.scss',
 })
 export class ProjectListComponent implements OnInit {
+  public project = signal<ProjectList[]>([]);
+  private projectService = inject(ProjectService);
   responsiveOptions: any[] | undefined;
-  public projects: ProjectList[] = [
+  /* public projects: ProjectList[] = [
     {
       title: 'portafolio jhonpuli',
       description: 'Descripción del proyecto 1',
@@ -87,7 +90,7 @@ export class ProjectListComponent implements OnInit {
       demoLink: 'http://demo-link.com',
       repoLink: 'http://github-repo-link.com',
     },
-  ];
+  ]; */
 
   ngOnInit(): void {
     this.responsiveOptions = [
@@ -107,5 +110,18 @@ export class ProjectListComponent implements OnInit {
         numScroll: 1,
       },
     ];
+    this.loadProject()
+  }
+
+  loadProject() {
+    this.projectService.getAllProjects().subscribe({
+      next: (projects) => {
+        this.project.set(projects);
+        /* console.log(projects); */
+      },
+      error: () => {
+        this.project.set([]);
+      }
+    });
   }
 }

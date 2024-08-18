@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Job } from '../../../core/model/interface/experience.interface';
+import { ExperienceService } from '../../../core/service/experience.service';
 
 @Component({
   selector: 'app-experience-list',
@@ -9,13 +10,31 @@ import { Job } from '../../../core/model/interface/experience.interface';
   templateUrl: './experience-list.component.html',
   styleUrl: './experience-list.component.scss',
 })
-export class ExperienceListComponent {
-  jobs: Job[] = [
+export class ExperienceListComponent implements OnInit {
+  public experiences = signal<Job[]>([]);
+  private experienceService = inject(ExperienceService);
+
+  ngOnInit(): void {
+    this.loadExperience()
+  }
+
+  loadExperience() {
+    this.experienceService.getAllExperiences().subscribe({
+      next: (experience) => {
+        this.experiences.set(experience);
+        /* console.log(this.experiences()) */
+      },
+      error: () => {
+        this.experiences.set([]);
+      },
+    });
+  }
+  /* jobs: Job[] = [
     {
       company: 'Startup XYZ',
       position: 'Desarrollador Full Stack',
       duration: 'Enero 2022 - Presente',
-      responsibilities: [
+      responsabilities: [
         'Desarrollar y mantener aplicaciones web usando Angular y Node.js.',
         'Implementar nuevas funcionalidades y mejorar la experiencia de usuario.',
         'Colaborar con el equipo de diseño para crear interfaces atractivas y funcionales.',
@@ -31,7 +50,7 @@ export class ExperienceListComponent {
       company: 'Freelance',
       position: 'Desarrollador Full Stack',
       duration: 'Junio 2020 - Diciembre 2021',
-      responsibilities: [
+      responsabilities: [
         'Desarrollar aplicaciones personalizadas para diversos clientes.',
         'Proveer soporte técnico y solucionar problemas de software.',
         'Asesorar a clientes sobre las mejores prácticas de desarrollo y tecnología.',
@@ -41,5 +60,5 @@ export class ExperienceListComponent {
         'Desarrollé una aplicación de gestión de inventario que aumentó la eficiencia del cliente en un 30%.',
       ],
     },
-  ];
+  ]; */
 }

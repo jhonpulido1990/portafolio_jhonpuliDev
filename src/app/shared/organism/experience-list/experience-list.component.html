@@ -1,6 +1,6 @@
 <section class="experience">
   <h2 class="experience__title">Experiencia Laboral</h2>
-  @for (job of jobs; track job) {
+  @for (job of experiences(); track job) {
   <section class="experience__card">
     <section class="experience__card__info">
       <h3 class="experience__card__info__title">{{ job.position }} - {{ job.company }}</h3>
@@ -8,7 +8,7 @@
         {{ job.duration }}</p>
       <p class="experience__card__info__p"><strong class="experience__card__info__p1__span1">Responsabilidades:</strong></p>
       <ul class="experience__card__info__ul">
-        @for (responsability of job.responsibilities; track responsability) {
+        @for (responsability of job.responsabilities; track responsability) {
           <li class="experience__card__info__ul__li">{{ responsability }}</li>
         }
       </ul>
