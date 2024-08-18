@@ -16,16 +16,21 @@
             </tr>
           </thead>
           <tbody class="accordion__item__content__container__table__tbody">
+            @if(listBlog()){
+            @for(blog of listBlog(); track blog){
             <tr class="accordion__item__content__container__table__tbody__tr">
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ blog.title }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ blog.description }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ blog.link }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ blog.date }}</td>
               <td class="accordion__item__content__container__table__tbody__tr__td">
                 <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"></button>
                 <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
               </td>
             </tr>
+            }
+            }
+
             <tr class="accordion__item__content__container__table__tbody__tr">
               <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
               <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
@@ -67,6 +72,8 @@
           <label class="accordion__item__content__container__form__label" for="input4">Fecha *</label>
           <input class="accordion__item__content__container__form__input" id="input4" type="text" />
           <button class="accordion__item__content__container__form__btn" type="submit">Enviar *</button>
+          <br>
+          <button class="accordion__item__content__container__form__btn" type="submit">clear *</button>
         </form>
       </section>
     </article>

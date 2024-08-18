@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { map, Observable } from 'rxjs';
-import { Job } from '../model/interface/experience.interface';
+import { ExperienceDto } from '../model/interface/experience.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ export class ExperienceService {
   private baseUrl = environment.apiUrl + '/experience';
 
   // Obtener todas las experiencias
-  getAllExperiences(): Observable<Job[]> {
-    return this.http.get<Job[]>(this.baseUrl).pipe(
+  getAllExperiences(): Observable<ExperienceDto[]> {
+    return this.http.get<ExperienceDto[]>(this.baseUrl).pipe(
       map((experiences) => {
         return experiences;
       })
@@ -21,18 +21,18 @@ export class ExperienceService {
   }
 
   // Obtener una experiencia por ID
-  getOneExperience(id: string): Observable<Job> {
-    return this.http.get<Job>(`${this.baseUrl}/${id}`);
+  getOneExperience(id: string): Observable<ExperienceDto> {
+    return this.http.get<ExperienceDto>(`${this.baseUrl}/${id}`);
   }
 
   // Crear una experiencia
-  createExperience(experience: Job): Observable<Job> {
-    return this.http.post<Job>(this.baseUrl, experience);
+  createExperience(experience: ExperienceDto): Observable<ExperienceDto> {
+    return this.http.post<ExperienceDto>(this.baseUrl, experience);
   }
 
   // actualizar una experiencia existente
-  updateExperience(id: string, experience: Partial<Job>): Observable<Job> {
-    return this.http.put<Job>(`${this.baseUrl}/${id}`, experience);
+  updateExperience(id: string, experience: Partial<ExperienceDto>): Observable<ExperienceDto> {
+    return this.http.put<ExperienceDto>(`${this.baseUrl}/${id}`, experience);
   }
 
   // Eliminar una experiencia existente

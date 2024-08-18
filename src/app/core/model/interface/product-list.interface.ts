@@ -1,4 +1,4 @@
-export interface ProjectList {
+export interface ProjectDto {
   title: string;
   description: string;
   technologies: string[];

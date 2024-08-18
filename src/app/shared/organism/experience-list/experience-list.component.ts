@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Job } from '../../../core/model/interface/experience.interface';
+import { ExperienceDto } from '../../../core/model/interface/experience.interface';
 import { ExperienceService } from '../../../core/service/experience.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ExperienceService } from '../../../core/service/experience.service';
   styleUrl: './experience-list.component.scss',
 })
 export class ExperienceListComponent implements OnInit {
-  public experiences = signal<Job[]>([]);
+  public experiences = signal<ExperienceDto[]>([]);
   private experienceService = inject(ExperienceService);
 
   ngOnInit(): void {

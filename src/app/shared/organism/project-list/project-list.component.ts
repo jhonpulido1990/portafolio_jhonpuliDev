@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ProjectList } from '../../../core/model/interface/product-list.interface';
+import { ProjectDto } from '../../../core/model/interface/product-list.interface';
 import { CommonModule } from '@angular/common';
 
 import { CarouselModule } from 'primeng/carousel';
@@ -14,7 +14,7 @@ import { ProjectService } from '../../../core/service/project.service';
   styleUrl: './project-list.component.scss',
 })
 export class ProjectListComponent implements OnInit {
-  public project = signal<ProjectList[]>([]);
+  public project = signal<ProjectDto[]>([]);
   private projectService = inject(ProjectService);
   responsiveOptions: any[] | undefined;
   /* public projects: ProjectList[] = [

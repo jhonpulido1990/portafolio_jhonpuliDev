@@ -20,20 +20,24 @@
             </tr>
           </thead>
           <tbody class="accordion__item__content__container__table__tbody">
-            <tr class="accordion__item__content__container__table__tbody__tr">
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">
-                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"></button>
-                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
-              </td>
-            </tr>
+            @if(listProject()){
+              @for(project of listProject(); track project){
+                <tr class="accordion__item__content__container__table__tbody__tr">
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.title }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.description }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.technologies }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.role }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.demoLink }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.repoLink }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.videoLink }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.imageUrl }}</td>
+                  <td class="accordion__item__content__container__table__tbody__tr__td">
+                    <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"></button>
+                    <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
+                  </td>
+                </tr>
+              }
+            }
             <tr class="accordion__item__content__container__table__tbody__tr">
               <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
               <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
@@ -94,6 +98,8 @@
           <input class="accordion__item__content__container__form__input" id="input4" type="text" />
           <img src="src" alt="imagen">
           <button class="accordion__item__content__container__form__btn" type="submit">Enviar *</button>
+          <br>
+          <button class="accordion__item__content__container__form__btn" type="submit">clear *</button>
         </form>
       </section>
     </article>

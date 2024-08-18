@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ExperienceDto } from '../../../core/model/interface/experience.interface';
+import { ExperienceService } from '../../../core/service/experience.service';
 
 @Component({
   selector: 'app-experience-crud',
@@ -7,9 +9,26 @@ import { Component } from '@angular/core';
   templateUrl: './experience-crud.component.html',
   styleUrl: './experience-crud.component.scss',
 })
-export class ExperienceCrudComponent {
+export class ExperienceCrudComponent implements OnInit {
+  public listExperience = signal<ExperienceDto[]>([]);
+  private experienceService = inject(ExperienceService);
   isTableOpen = true;
   isFormOpen = false;
+
+  ngOnInit(): void {
+    this.loadExperience()
+  }
+
+  loadExperience() {
+    this.experienceService.getAllExperiences().subscribe({
+      next: ((experience) => {
+        this.listExperience.set(experience);
+      }),
+      error: () => {
+        this.listExperience.set([]);
+      }
+    })
+  }
 
   toggleSection(section: string): void {
     if (section === 'table' && !this.isTableOpen) {

@@ -1,4 +1,4 @@
-export interface Job {
+export interface ExperienceDto {
   id?: string;
   company: string;
   position: string;
