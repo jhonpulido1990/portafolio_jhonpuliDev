@@ -102,6 +102,10 @@
             }
           }
 
+          &__error {
+            color: red;
+          }
+
           &__btn {
             font-size: variables.$text_size_xsmall;
             letter-spacing: 3px;
