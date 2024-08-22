@@ -20,52 +20,41 @@
             </tr>
           </thead>
           <tbody class="accordion__item__content__container__table__tbody">
-            @if(listProject()){
-              @for(project of listProject(); track project){
-                <tr class="accordion__item__content__container__table__tbody__tr">
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.title }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.description }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.technologies }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.role }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.demoLink }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.repoLink }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.videoLink }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.imageUrl }}</td>
-                  <td class="accordion__item__content__container__table__tbody__tr__td">
-                    <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"></button>
-                    <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
-                  </td>
-                </tr>
-              }
+            @if(listProject().length > 0){
+            @for(project of listProject(); track project){
+            <tr class="accordion__item__content__container__table__tbody__tr">
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.title }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.description }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.technologies }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.role }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.demoLink }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.repoLink }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.videoLink }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">{{ project.imageUrl }}</td>
+              <td class="accordion__item__content__container__table__tbody__tr__td">
+                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"
+                  (click)="deleteProject(project.id!)"></button>
+                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"
+                  (click)="updateProject(project.id!)"></button>
+              </td>
+            </tr>
             }
-            <tr class="accordion__item__content__container__table__tbody__tr">
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">
-                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__bnt"></button>
-                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
-              </td>
+            } @else {
+            @for(item of [1,2,3,4,5]; track item)
+            {
+            <tr>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
             </tr>
-            <tr class="accordion__item__content__container__table__tbody__tr">
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 1</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 2</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 3</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 4</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 5</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 6</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 7</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">Dato 8</td>
-              <td class="accordion__item__content__container__table__tbody__tr__td">
-                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__bnt"></button>
-                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"></button>
-              </td>
-            </tr>
+            }
+            }
           </tbody>
         </table>
       </section>
@@ -77,29 +66,58 @@
     </header>
     <article class="accordion__item__content" [class.accordion__item__content--active]="isFormOpen">
       <section class="accordion__item__content__container">
-        <form class="accordion__item__content__container__form">
+        <form class="accordion__item__content__container__form" [formGroup]="myForm" (ngSubmit)="onsubmit()">
           <label class="accordion__item__content__container__form__label" for="input1">Titulo *</label>
-          <input class="accordion__item__content__container__form__input" id="input1" type="text" />
+          <input class="accordion__item__content__container__form__input" id="input1" type="text"
+            formControlName="title" />
+          <article class="accordion__item__content__container__form__error" *ngIf="isValidField('title')">
+            {{ getFieldError('title') }}
+          </article>
           <label class="accordion__item__content__container__form__label" for="input2">Descriccion *</label>
-          <input class="accordion__item__content__container__form__input" id="input2" type="text" />
-          <label class="accordion__item__content__container__form__label" for="input3">Tecnologias *</label>
-          <span>Angular</span>
-          <input class="accordion__item__content__container__form__input" id="input3" type="text" />
-          <button class="pi pi-plus"></button>
+          <input class="accordion__item__content__container__form__input" id="input2" type="text"
+            formControlName="description" />
+          <article class="accordion__item__content__container__form__error" *ngIf="isValidField('description')">
+            {{ getFieldError('description') }}
+          </article>
+          <section formArrayName="technologies">
+            <label class="accordion__item__content__container__form__label">Tecnologias *</label>
+            @for (technology of technologies.controls; track technology; let i = $index) {
+            <article>
+              <input class="accordion__item__content__container__form__input" [formControlName]="i" />
+              <button type="button" class="pi pi-minus" (click)="removeTechnologies(i)"></button>
+            </article>
+            }
+            <article class="accordion__item__content__container__form__error" *ngIf="isValidField('technologies')">
+              {{ getFieldError('technologies') }}
+            </article>
+            <button class="pi pi-plus" type="button" (click)="addTechnologies()"></button>
+          </section>
           <label class="accordion__item__content__container__form__label" for="input4">Rol *</label>
-          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <input class="accordion__item__content__container__form__input" id="input4" type="text"
+            formControlName="role" />
+          <article class="accordion__item__content__container__form__error" *ngIf="isValidField('role')">
+            {{ getFieldError('role') }}
+          </article>
           <label class="accordion__item__content__container__form__label" for="input4">Demolink *</label>
-          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <input class="accordion__item__content__container__form__input" id="input4" type="text"
+            formControlName="demoLink" />
           <label class="accordion__item__content__container__form__label" for="input4">Repolink *</label>
-          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <input class="accordion__item__content__container__form__input" id="input4" type="text"
+            formControlName="repoLink" />
           <label class="accordion__item__content__container__form__label" for="input4">Videolink *</label>
-          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
+          <input class="accordion__item__content__container__form__input" id="input4" type="text"
+            formControlName="videoLink" />
           <label class="accordion__item__content__container__form__label" for="input4">Imagenlink *</label>
-          <input class="accordion__item__content__container__form__input" id="input4" type="text" />
-          <img src="src" alt="imagen">
+          <input class="accordion__item__content__container__form__input" id="input4" type="text"
+            formControlName="imageUrl" #imgUrl (keyup)="0" />
+          <article class="accordion__item__content__container__form__error" *ngIf="isValidField('imageUrl')">
+            {{ getFieldError('imageUrl') }}
+          </article>
+          <img class="accordion__item__content__container__form__img" [src]="imgUrl.value" alt="imagen">
           <button class="accordion__item__content__container__form__btn" type="submit">Enviar *</button>
           <br>
-          <button class="accordion__item__content__container__form__btn" type="submit">clear *</button>
+          <button class="accordion__item__content__container__form__btn" type="button" (click)="clearProject()">clear
+            *</button>
         </form>
       </section>
     </article>

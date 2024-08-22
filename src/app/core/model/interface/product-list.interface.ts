@@ -1,4 +1,5 @@
 export interface ProjectDto {
+  id?: string;
   title: string;
   description: string;
   technologies: string[];

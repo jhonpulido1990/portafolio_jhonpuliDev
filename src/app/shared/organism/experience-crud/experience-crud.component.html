@@ -18,7 +18,7 @@
             </tr>
           </thead>
           <tbody class="accordion__item__content__container__table__tbody">
-            @if (listExperience()) {
+            @if (listExperience().length > 0) {
             @for (experience of listExperience(); track experience) {
             <tr class="accordion__item__content__container__table__tbody__tr">
               <td class="accordion__item__content__container__table__tbody__tr__td">{{ experience.company }}</td>
@@ -29,9 +29,24 @@
               <td class="accordion__item__content__container__table__tbody__tr__td">{{ experience.achievements }}</td>
               <td class="accordion__item__content__container__table__tbody__tr__td">{{ experience.testimonial }}</td>
               <td class="accordion__item__content__container__table__tbody__tr__td">
-                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn" (click)="deleteExperience(experience.id!)"></button>
-                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn" (click)="updateExperience(experience.id!)"></button>
+                <button class="pi pi-trash accordion__item__content__container__table__tbody__tr__td__btn"
+                  (click)="deleteExperience(experience.id!)"></button>
+                <button class="pi pi-check accordion__item__content__container__table__tbody__tr__td__btn"
+                  (click)="updateExperience(experience.id!)"></button>
               </td>
+            </tr>
+            }
+            } @else {
+            @for(item of [1,2,3,4,5]; track item)
+            {
+            <tr>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
+              <td><p-skeleton height="35px" /></td>
             </tr>
             }
             }
@@ -95,7 +110,8 @@
           <input class="accordion__item__content__container__form__input" id="input4" type="text" />
           <button class="accordion__item__content__container__form__btn" type="submit">Enviar *</button>
           <br>
-          <button class="accordion__item__content__container__form__btn" type="button" (click)="clearExperience()">clear *</button>
+          <button class="accordion__item__content__container__form__btn" type="button" (click)="clearExperience()">clear
+            *</button>
         </form>
       </section>
     </article>

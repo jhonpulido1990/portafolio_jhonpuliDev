@@ -8,11 +8,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-blog-crud',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, SkeletonModule],
   templateUrl: './blog-crud.component.html',
   styleUrl: './blog-crud.component.scss',
 })
