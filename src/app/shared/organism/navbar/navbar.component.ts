@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
 import { RutaNavbar } from '../../../core/model/interface/route_menu.interface';
 import { RouterModule } from '@angular/router';
+import { TokenService } from '../../../core/service/token.service';
+import { AuthService } from '../../../core/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +14,9 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public isActive = false;
+  private tokenService = inject(TokenService);
+  private authService = inject(AuthService);
+  public username: string | null = null;
 
   public ruta: RutaNavbar[] = [
     { path: '/about', name: 'Sobre mi' },
@@ -24,6 +29,17 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkWindowWidth();
+    const token = this.tokenService.getToken();
+    if (token) {
+      this.authService.verifyToken(token).subscribe({
+        next: (response) => {
+          this.username = response.payload.username;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   changeActive(): void {

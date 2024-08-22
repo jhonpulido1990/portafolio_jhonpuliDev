@@ -3,9 +3,9 @@
   <form class="contact__form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <section class="contact__form__group">
       <label class="contact__form__group__label" for="email">Usuario:</label>
-      <input class="contact__form__group__input" id="email" formControlName="email" type="email" placeholder="Tu Usuario">
-      <article class="contact__form__group__error" *ngIf="isValidField('email')">
-        {{ getFieldError('email') }}
+      <input class="contact__form__group__input" id="email" formControlName="username" type="email" placeholder="Tu Usuario">
+      <article class="contact__form__group__error" *ngIf="isValidField('username')">
+        {{ getFieldError('username') }}
       </article>
     </section>
     <section class="contact__form__group">
@@ -17,5 +17,8 @@
       </article>
     </section>
     <button class="contact__form__btn" type="submit">Enviar</button>
+    @if (errorMessage) {
+      <span>{{ errorMessage }}</span>
+    }
   </form>
 </section>

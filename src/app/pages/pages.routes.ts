@@ -13,6 +13,7 @@ import { AdminLayoutsComponent } from './layouts/admin-layouts/admin-layouts.com
 import { BlogAdminComponent } from './admin/blog-admin/blog-admin.component';
 import { ExperienceAdminComponent } from './admin/experience-admin/experience-admin.component';
 import { ProjectAdminComponent } from './admin/project-admin/project-admin.component';
+import { authGuard } from '../core/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -38,6 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [authGuard],
     component: AdminLayoutsComponent,
     children: [
       { path: 'blog', title: 'admin-blog', component: BlogAdminComponent },

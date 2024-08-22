@@ -13,9 +13,16 @@
   <section class="navbar__menu" [ngClass]="{ 'navbar__menu--active': isActive }">
     <ul class="navbar__menu__ul">
       @for ( path of ruta; track path) {
-        <li class="navbar__menu__ul__li">
-          <a class="navbar__menu__ul__li__a" (click)="changeActive()" [routerLink]="[path.path]" routerLinkActive="active" >{{ path.name }}</a>
-        </li>
+        @if(path.name === 'Login' && username) {
+          <li class="navbar__menu__ul__li">
+            <a class="navbar__menu__ul__li__a" (click)="changeActive()" [routerLink]="['/admin/blog']" routerLinkActive="active" >{{ username }}</a>
+          </li>
+        } @else {
+          <li class="navbar__menu__ul__li">
+            <a class="navbar__menu__ul__li__a" (click)="changeActive()" [routerLink]="[path.path]" routerLinkActive="active">{{
+              path.name }}</a>
+          </li>
+        }
       }
     </ul>
   </section>

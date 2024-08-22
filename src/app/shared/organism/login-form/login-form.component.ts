@@ -6,6 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../../core/service/auth.service';
+import { Router } from '@angular/router';
+import { TokenService } from '../../../core/service/token.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,9 +19,13 @@ import {
 })
 export class LoginFormComponent {
   emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  public errorMessage: string | null = null;
   private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private tokenService = inject(TokenService);
+  private router = inject(Router);
   public myForm: FormGroup = this.fb.group({
-    email: [
+    username: [
       '',
       [
         Validators.required,
@@ -65,6 +72,16 @@ export class LoginFormComponent {
     }
 
     // Aquí puedes agregar la lógica para enviar el mensaje
+    this.authService.login(this.myForm.value).subscribe({
+      next: (response) => {
+        this.tokenService.setToken(response.token);
+        this.router.navigate(['/admin/blog'])
+      },
+      error: (error) => {
+        console.log(error);
+        this.errorMessage = 'invalid username or password: ' + error;
+      }
+    })
     console.log('Formulario enviado', this.myForm.value);
     this.myForm.reset();
   }
