@@ -1,27 +1,39 @@
 <section class="experience">
   <h2 class="experience__title">Experiencia Laboral</h2>
+  @if(experiences().length > 0){
   @for (job of experiences(); track job) {
   <section class="experience__card">
     <section class="experience__card__info">
       <h3 class="experience__card__info__title">{{ job.position }} - {{ job.company }}</h3>
       <p class="experience__card__info__p"><strong class="experience__card__info__p__strong">Duración:</strong>
         {{ job.duration }}</p>
-      <p class="experience__card__info__p"><strong class="experience__card__info__p1__span1">Responsabilidades:</strong></p>
+      <p class="experience__card__info__p"><strong class="experience__card__info__p1__span1">Responsabilidades:</strong>
+      </p>
       <ul class="experience__card__info__ul">
         @for (responsability of job.responsabilities; track responsability) {
-          <li class="experience__card__info__ul__li">{{ responsability }}</li>
+        <li class="experience__card__info__ul__li">{{ responsability }}</li>
         }
       </ul>
       <p class="experience__card__info__p"><strong class="experience__card__info__p2__span2">Logros:</strong></p>
       <ul class="experience__card__info__ul">
         @for (achievement of job.achievements; track achievement) {
-          <li class="experience__card__info__ul__li">{{ achievement }}</li>
+        <li class="experience__card__info__ul__li">{{ achievement }}</li>
         }
       </ul>
       @if(job.testimonial){
-        <p class="experience__card__info__testimonial"><strong>Testimonio:</strong> {{ job.testimonial }}</p>
+      <p class="experience__card__info__testimonial"><strong>Testimonio:</strong> {{ job.testimonial }}</p>
       }
     </section>
   </section>
+  }
+  } @else {
+  <div class="spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   }
 </section>

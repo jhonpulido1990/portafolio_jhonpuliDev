@@ -17,80 +17,6 @@ export class ProjectListComponent implements OnInit {
   public project = signal<ProjectDto[]>([]);
   private projectService = inject(ProjectService);
   responsiveOptions: any[] | undefined;
-  /* public projects: ProjectList[] = [
-    {
-      title: 'portafolio jhonpuli',
-      description: 'Descripción del proyecto 1',
-      technologies: ['Angular', 'Node.js', 'Express', 'MongoDB'],
-      role: 'Desarrollador Full Stack',
-      imageUrl: '../../../../assets/imagen/fondoHeader/imagen1.jpeg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'portafolio projeccion 3d',
-      description: 'Descripción del proyecto 2',
-      technologies: ['React', 'Firebase'],
-      role: 'Desarrollador Frontend',
-      imageUrl: '../../../../assets/imagen/fondoHeader/imagen1.jpeg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'e-commerce rcpiscina',
-      description: 'Descripción del proyecto 1',
-      technologies: ['Angular', 'Node.js', 'Express', 'MongoDB'],
-      role: 'Desarrollador Full Stack',
-      imageUrl: '../../../../assets/imagen/fondoHeader/imagen1.jpeg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'rick and morty',
-      description: 'Descripción del proyecto 2',
-      technologies: ['React', 'Firebase'],
-      role: 'Desarrollador Frontend',
-      imageUrl: 'path/to/project2.jpg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'Delatinos',
-      description: 'Descripción del proyecto 1',
-      technologies: ['Angular', 'Node.js', 'Express', 'MongoDB'],
-      role: 'Desarrollador Full Stack',
-      imageUrl: 'path/to/project1.jpg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'mascotas en casa',
-      description: 'Descripción del proyecto 2',
-      technologies: ['React', 'Firebase'],
-      role: 'Desarrollador Frontend',
-      imageUrl: 'path/to/project2.jpg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'buen toro',
-      description: 'Descripción del proyecto 2',
-      technologies: ['React', 'Firebase'],
-      role: 'Desarrollador Frontend',
-      imageUrl: 'path/to/project2.jpg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-    {
-      title: 'landing page rankcv',
-      description: 'Descripción del proyecto 2',
-      technologies: ['React', 'Firebase'],
-      role: 'Desarrollador Frontend',
-      imageUrl: 'path/to/project2.jpg',
-      demoLink: 'http://demo-link.com',
-      repoLink: 'http://github-repo-link.com',
-    },
-  ]; */
 
   ngOnInit(): void {
     this.responsiveOptions = [
@@ -117,7 +43,6 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getAllProjects().subscribe({
       next: (projects) => {
         this.project.set(projects);
-        /* console.log(projects); */
       },
       error: () => {
         this.project.set([]);
