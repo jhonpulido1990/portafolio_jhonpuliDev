@@ -6,8 +6,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MailService } from '../../../core/service/mail.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -17,8 +15,6 @@ import { Router } from '@angular/router';
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent {
-  private mailService = inject(MailService);
-  private route = inject(Router);
   private fb = inject(FormBuilder);
   public myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
@@ -56,14 +52,7 @@ export class ContactFormComponent {
     }
 
     // Aquí puedes agregar la lógica para enviar el mensaje
-    this.mailService.sendmail(this.myForm.value).subscribe({
-      next: () => {
-        this.myForm.reset()
-        this.route.navigate(['/home']);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    })
+    console.log('Formulario enviado', this.myForm.value);
+    this.myForm.reset();
   }
 }

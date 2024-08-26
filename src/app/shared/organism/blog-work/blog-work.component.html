@@ -1,21 +1,11 @@
 <div class="blog">
   <h2 class="blog__title">Blog y Artículos</h2>
-  @if(blogs().length > 0){
   @for (article of blogs(); track article) {
   <div class="blog__card">
     <h3 class="blog__card__title">{{ article.title }}</h3>
     <p class="blog__card__date">{{ article.date }}</p>
     <p class="blog__card__description">{{ article.description }}</p>
     <a class="blog__card__a" [href]="article.link" target="_blank">Leer más</a>
-  </div>
-  }}@else {
-  <div class="spinner">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
   </div>
   }
 </div>

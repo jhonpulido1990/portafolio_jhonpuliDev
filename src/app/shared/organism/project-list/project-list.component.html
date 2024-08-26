@@ -1,6 +1,6 @@
 <section class="projects">
   <h2 class="projects__title">Proyectos</h2>
-  @if (project().length > 0) {
+  @if (project()) {
   <p-carousel class="projects__caroulse" [value]="project()" [numVisible]="3" [numScroll]="1" [circular]="true"
     [responsiveOptions]="responsiveOptions" [showIndicators]="false">
     <ng-template let-product pTemplate="item">
@@ -15,26 +15,16 @@
             product.technologies.join(', ') }}</p>
           <p class="projects__caroulse__card__info__p"><strong>Rol:</strong> {{ product.role }}</p>
           <article class="projects__caroulse__card__info__links">
-            <a class="projects__caroulse__card__info__links__a" *ngIf="product.demoLink && product.demoLink !== 'null'"
-              [href]="product.demoLink" target="_blank">Ver Demo</a>
-            <a class="projects__caroulse__card__info__links__a" *ngIf="product.repoLink && product.repolink !== 'null'"
-              [href]="product.repoLink" target="_blank">Ver Repositorio</a>
-            <a class="projects__caroulse__card__info__links__a"
-              *ngIf="product.videoLink && product.videoLink !== 'null'" [href]="product.repoLink" target="_blank">Ver
-              Video</a>
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.demoLink" [href]="product.demoLink"
+              target="_blank">Ver Demo</a>
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.repoLink" [href]="product.repoLink"
+              target="_blank">Ver Repositorio</a>
+            <a class="projects__caroulse__card__info__links__a" *ngIf="product.videoLink" [href]="product.repoLink"
+              target="_blank">Ver Video</a>
           </article>
         </section>
       </section>
     </ng-template>
   </p-carousel>
-  } @else {
-  <div class="spinner">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
   }
 </section>
