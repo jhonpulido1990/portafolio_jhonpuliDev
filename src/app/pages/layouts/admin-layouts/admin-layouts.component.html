@@ -1,6 +1,6 @@
 <nav class="navbar">
   <i class="pi pi-home" [routerLink]="['/']">Home</i>
-  <i class="pi pi-user">{{ username }}</i>
+  <i class="pi pi-user">{{ username() }}</i>
   <i class="pi pi-sign-out" (click)="cleartoken()">Cerrar seccion</i>
 </nav>
 <section class="admin">
