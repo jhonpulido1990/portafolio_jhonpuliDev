@@ -20,11 +20,10 @@ export class NavbarComponent implements OnInit {
 
   public ruta: RutaNavbar[] = [
     { path: '/about', name: 'Sobre mi' },
-    { path: '/projects', name: 'Projectos' },
+    { path: '/projects', name: 'Proyectos' },
     { path: '/experience', name: 'Experiencia' },
-    { path: '/blog', name: 'Blog' },
-    { path: '/contact', name: 'Contacto' },
-    { path: '/auth/login', name: 'Login' },
+    /* { path: '/blog', name: 'Blog' }, */
+    { path: '/contact', name: 'Contacto' }
   ];
 
   ngOnInit(): void {

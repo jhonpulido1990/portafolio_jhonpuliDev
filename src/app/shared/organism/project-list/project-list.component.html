@@ -10,10 +10,10 @@
         </article>
         <section class="projects__caroulse__card__info">
           <h3 class="projects__caroulse__card__info__title">{{ product.title }}</h3>
-          <p class="projects__caroulse__card__info__p">{{ product.description }}</p>
+          <p class="projects__caroulse__card__info__p"><strong>Rol:</strong> {{ product.role }}</p>
           <p class="projects__caroulse__card__info__p"><strong>Tecnologías usadas:</strong> {{
             product.technologies.join(', ') }}</p>
-          <p class="projects__caroulse__card__info__p"><strong>Rol:</strong> {{ product.role }}</p>
+          <p class="projects__caroulse__card__info__p"><b>Descripcion: </b>{{ product.description }}</p>
           <article class="projects__caroulse__card__info__links">
             <a class="projects__caroulse__card__info__links__a" *ngIf="product.demoLink" [href]="product.demoLink"
               target="_blank">Ver Demo</a>
