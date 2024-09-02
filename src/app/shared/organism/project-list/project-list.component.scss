@@ -72,6 +72,7 @@
         p {
           margin: 5px 0;
           font-size: 16px;
+          text-align: justify;
 
           @include mixins.tablet() {
             font-size: variables.$text_size_xsmall;
