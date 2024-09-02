@@ -39,6 +39,7 @@
       &__card {
         font-size: variables.$text_size_xsmall;
         padding-left: 20px;
+        text-align: justify;
 
         @include mixins.tablet() {
           font-size: variables.$text_size_small;

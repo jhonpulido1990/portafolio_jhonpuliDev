@@ -23,6 +23,7 @@
 
     &__p {
       font-size: variables.$text_size_small;
+      text-align: justify;
 
       @include mixins.tablet() {
         font-size: variables.$text_size-normal;
